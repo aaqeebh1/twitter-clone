@@ -5,9 +5,8 @@
 }
 .sidebar__option--inner {
     display: flex;
-    align-items: center;
-    margin: 10px 0 0;
-    padding: 10px 0;
+    align-items: center;    
+    padding: 12px
 }
 
 .sidebar__option--inner:hover {
@@ -25,6 +24,7 @@
 .sidebar__option--inner > h2 {
     font-weight: 400;
     padding-right: 20px;
+    font-size: 20px;
     
 }
 
