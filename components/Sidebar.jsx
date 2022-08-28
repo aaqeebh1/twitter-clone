@@ -11,6 +11,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import PendingOutlinedIcon from "@mui/icons-material/PendingOutlined";
 import TagIcon from "@mui/icons-material/Tag";
 import { Button, IconButton } from "@mui/material";
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 
 const Sidebar = () => {
   return (
@@ -57,6 +58,9 @@ const Sidebar = () => {
       />
       <Button variant="outlined" className="sidebar__tweet--btn" fullWidth>
         Tweet
+      </Button>
+      <Button variant="outlined" className="sidebar__tweet--btn2">
+        <CreateOutlinedIcon />
       </Button>
     </div>
   );

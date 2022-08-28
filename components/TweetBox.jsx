@@ -7,10 +7,29 @@ import SentimentSatisfiedAltOutlinedIcon from "@mui/icons-material/SentimentSati
 import DateRangeOutlinedIcon from "@mui/icons-material/DateRangeOutlined";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import PublicIcon from "@mui/icons-material/Public";
-import React from "react";
+import React, { useState} from "react";
 import "./TweetBox.css";
+import db from "../firebase";
 
 const TweetBox = () => {
+  const [tweetMessage, setTweetMessage] = useState('');
+  const [tweetImage, setTweetImage] = useState('');
+
+  const sendTweet = (e) => {
+    e.preventDefault()
+    
+    db.collection('posts').add({
+      displayName: 'Aaqeeb Hussain',
+      username: 'Aaqeebh',
+      verified: true,
+      text: tweetMessage,
+      image: tweetImage,
+      avatar: 'https://pbs.twimg.com/profile_images/1456666356716351501/Byu6dXVg_400x400.jpg'
+    })
+
+    setTweetImage("")
+    setTweetMessage("")
+  }
   return (
     <div className="tweet__box">
       <div className="tweet__box--avatar">
@@ -21,8 +40,9 @@ const TweetBox = () => {
           Everyone <KeyboardArrowDownIcon fontSize="small" />{" "}
         </Button>
         <div className="tweet__box--input">
-          <input placeholder="What's happening?" type="text" />
+          <input onChange={e => setTweetMessage(e.target.value)} value={tweetMessage} placeholder="What's happening?" type="text" />
         </div>
+          <input onChange={e => setTweetImage(e.target.value)} className="tweet__box--imgInput" value={tweetImage} placeholder="Optional: Enter image url" type="text" />
         <Button className="tweet__box--ecr-btn">
           {" "}
           <PublicIcon fontSize="small" /> Everyone can reply
@@ -67,7 +87,7 @@ const TweetBox = () => {
             </IconButton>
           </div>
           <div className="button__wrapper--right">
-            <Button variant="contained" className="tweet__button">
+            <Button onClick={sendTweet} type="submit" variant="contained" className="tweet__button">
               Tweet
             </Button>
           </div>

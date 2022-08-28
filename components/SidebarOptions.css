@@ -31,3 +31,11 @@
 .sidebar__option--active {
     color: var(--twitter-color);
 }
+
+
+@media (max-width: 1300px) {
+    .sidebar__option--inner > h2 {
+        display: none;
+        
+    }
+}

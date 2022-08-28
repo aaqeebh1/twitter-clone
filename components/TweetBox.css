@@ -50,6 +50,12 @@
   border: none;
   outline: none;
 }
+.tweet__box--imgInput {
+  flex: 1;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
 .tweet__box--ecr-btn {
   width: 170px !important;
   padding: 0 12px !important;
